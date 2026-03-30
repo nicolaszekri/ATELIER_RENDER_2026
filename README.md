@@ -123,3 +123,5 @@ Cet atelier Render, **noté sur 20 points**, est évalué sur la base du barème
 - Processus travail (quantité de commits, cohérence globale, interventions externes, ...) (3 points)
 
 - Test deploy Nicolas
+
+- test render
