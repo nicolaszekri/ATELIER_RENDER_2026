@@ -34,4 +34,7 @@ resource "render_web_service" "flask_app" {
       value = "production"
     }
   }
+  env_vars = {
+    ENV = "production"
+  }
 }
