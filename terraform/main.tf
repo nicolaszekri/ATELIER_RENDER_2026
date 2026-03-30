@@ -1,36 +1,24 @@
-terraform {
-  required_providers {
-    render = {
-      source  = "render-oss/render"
-      version = ">= 1.7.0"
-    }
-  }
-}
-
 provider "render" {
-  api_key  = var.render_api_key
-  owner_id = var.render_owner_id
+  api_key = var.render_api_key
 }
 
-variable "github_actor" {
-  description = "GitHub username"
-  type        = string
-}
+variable "render_api_key" {}
+variable "owner_id" {}
 
 resource "render_web_service" "flask_app" {
-  name   = "flask-render-iac-${var.github_actor}"
-  plan   = "free"
-  region = "frankfurt"
+  name = "flask-app"
+  owner_id = var.owner_id
 
-  runtime_source = {
-    image = {
-      image_url = var.image_url
-      tag       = var.image_tag
+  repo = "https://github.com/NicolasZekri/ATELIER_RENDER_2026"
+  branch = "main"
+
+  build_command = "pip install -r requirements.txt"
+  start_command = "python app.py"
+
+  env_vars = [
+    {
+      key = "ENV"
+      value = "production"
     }
-  }
- env_vars = [
-  {
-    key = "ENV"
-    value = "production"
-  }
-]
+  ]
+}
