@@ -21,3 +21,11 @@ def info():
         "name": "Nicolas Zekri",
         "version": "1.0"
     }
+
+import os
+
+@app.route('/env')
+def env():
+    return {
+        "env": os.getenv("ENV")
+    }
