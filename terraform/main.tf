@@ -14,10 +14,10 @@ provider "render" {
 }
 
 resource "render_web_service" "flask_app" {
-  name           = "flask-app"
-  plan           = "free"
-  region         = "frankfurt"
-  start_command  = "python app.py"
+  name          = "flask-app"
+  plan          = "free"
+  region        = "frankfurt"
+  start_command = "python app.py"
 
   runtime_source = {
     native_runtime = {
