@@ -14,21 +14,24 @@ provider "render" {
 }
 
 resource "render_web_service" "flask_app" {
-  name     = "flask-app"
-  owner_id = var.owner_id
+  name           = "flask-app"
+  plan           = "free"
+  region         = "frankfurt"
+  start_command  = "python app.py"
 
-  repo   = "https://github.com/nicolaszekri/ATELIER_RENDER_2026"
-  branch = "main"
+  runtime_source = {
+    native_runtime = {
+      auto_deploy   = true
+      branch        = "main"
+      build_command = "pip install -r requirements.txt"
+      repo_url      = "https://github.com/nicolaszekri/ATELIER_RENDER_2026"
+      runtime       = "python"
+    }
+  }
 
-  runtime = "python"
-
-  build_command = "pip install -r requirements.txt"
-  start_command = "python app.py"
-
-  env_vars = [
-    {
-      key   = "ENV"
+  env_vars = {
+    ENV = {
       value = "production"
     }
-  ]
+  }
 }
