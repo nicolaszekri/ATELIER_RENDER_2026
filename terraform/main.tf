@@ -7,6 +7,8 @@ terraform {
   }
 }
 
+variable "github_actor" {}
+
 provider "render" {
   api_key = var.render_api_key
 }
