@@ -6,10 +6,10 @@ variable "render_api_key" {}
 variable "owner_id" {}
 
 resource "render_web_service" "flask_app" {
-  name = "flask-app"
+  name     = "flask-app"
   owner_id = var.owner_id
 
-  repo = "https://github.com/NicolasZekri/ATELIER_RENDER_2026"
+  repo   = "https://github.com/nicolaszekri/ATELIER_RENDER_2026"
   branch = "main"
 
   build_command = "pip install -r requirements.txt"
@@ -17,7 +17,7 @@ resource "render_web_service" "flask_app" {
 
   env_vars = [
     {
-      key = "ENV"
+      key   = "ENV"
       value = "production"
     }
   ]
