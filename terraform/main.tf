@@ -2,9 +2,6 @@ provider "render" {
   api_key = var.render_api_key
 }
 
-variable "render_api_key" {}
-variable "owner_id" {}
-
 resource "render_web_service" "flask_app" {
   name     = "flask-app"
   owner_id = var.owner_id
