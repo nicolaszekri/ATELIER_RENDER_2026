@@ -3,14 +3,10 @@ variable "render_api_key" {
   sensitive = true
 }
 
-variable "render_owner_id" {
+variable "owner_id" {
   type = string
 }
 
-variable "image_url" {
-  type = string
-}
-
-variable "image_tag" {
+variable "github_actor" {
   type = string
 }
